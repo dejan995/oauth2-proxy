@@ -1,7 +1,7 @@
 version: "3.5"
 services:
     oauth2-proxy:
-        container_name: ${CONTAINER_NAME_OAUTH}
+        container_name: ${CONTAINER_NAME_OAUTH2}
         image: bitnami/oauth2-proxy:latest
         restart: unless-stopped
         command: --config /oauth2-proxy.cfg
