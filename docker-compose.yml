@@ -1,0 +1,23 @@
+version: "3.5"
+services:
+    oauth2-proxy:
+        container_name: ${CONTAINER_NAME_OAUTH}
+        image: bitnami/oauth2-proxy:latest
+        restart: unless-stopped
+        command: --config /oauth2-proxy.cfg
+        ports:
+            - '${OAUTH2_PORT_1}:8080'
+            - '${OAUTH2_PORT_2}:4180'
+        volumes:
+            - "./oauth2-proxy.cfg:/oauth2-proxy.cfg"
+        environment:
+            - 'OAUTH2_PROXY_SESSION_STORE_TYPE=redis'
+            - 'OAUTH2_PROXY_REDIS_CONNECTION_URL=redis://${REDIS_IP_HOST}:${REDIS_PORT}/0'
+    redis:
+        container_name: ${CONTAINER_NAME_REDIS}
+        image: redis:latest
+        restart: unless-stopped
+        ports:
+            - '${REDIS_PORT}:6379'
+        volumes:
+            - '${REDIS_CONFIG}:/data'
