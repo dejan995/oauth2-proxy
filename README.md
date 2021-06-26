@@ -30,6 +30,6 @@ cookie_refresh = "1h"
 cookie_secure = true
 cookie_httponly = true
 ```
-    - **provider** - this is the actual provider of the 2FA authentication process. In this use case this will be set to "azure".
+- **provider** - this is the actual provider of the 2FA authentication process. In this use case this will be set to "azure".
 4. Now you can edit the variables in .env file. The variables are already set to work properly, but in case you have services that use one of the ports declared in the file you will need to change those to ports that are not being used. **NOTE: If you already have Redis or Nginx Proxy Manager running on your system you can comment out these services from the "docker-compose.yml". You don't need two instances of these applications for this to work. Keep in mind that you might need to change the enviornment variable "OAUTH2_PROXY_REDIS_CONNECTION_URL" to reflect your current Redis configuration.**
 
