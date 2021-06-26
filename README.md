@@ -93,3 +93,10 @@ You will have to edit your proxy hosts one by one and in the "Advanced" tab add 
   }
   ### Oauth Snippet End ----------------------------------------------------------
   ```
+# Big Thanks to
+- [u/12Parsecstohome](https://www.reddit.com/user/12Parsecstohome/) - for providing the awesome nginx snippet this whole project is based on. You can see the Reddit post [here](https://www.reddit.com/r/unRAID/comments/kl8q9d/success_google_auth_using_oauth2proxy_w_with/).
+- [Bitnami](https://github.com/Bitnami) - for providing the OAuth2-Proxy docker image.
+- [OAuth2-Proxy Team](https://github.com/oauth2-proxy) - for creating and maintaining the OAuth2-Proxy Project.
+- [Redis Team](https://github.com/redis) - for creating and maintaining the Redis Project.
+- [Jocelyn Le Sage](https://github.com/jlesage/) - for providing the Nginx Proxy Manager docker image.
+- [jc21](https://github.com/jc21/) - for creating and maintaining the Nginx Proxy Manager project.
