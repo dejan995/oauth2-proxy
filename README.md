@@ -1,5 +1,5 @@
 # Introduction 
-Docker Compose deployment of OAuth2-Proxy and Redis. Made Easy!!!
+Docker Compose deployment of OAuth2-Proxy with Nginx-Proxy-Manager and Redis. Made Easy!!!
 
 **NOTE: This setup assumes that you will be using Microsofts Azure Active Directory Services.**
 
