@@ -13,6 +13,7 @@ services:
         environment:
             - 'OAUTH2_PROXY_SESSION_STORE_TYPE=redis'
             - 'OAUTH2_PROXY_REDIS_CONNECTION_URL=redis://${REDIS_IP_HOST}:${REDIS_PORT}/0'
+
     redis:
         container_name: ${CONTAINER_NAME_REDIS}
         image: redis:latest
@@ -21,3 +22,14 @@ services:
             - '${REDIS_PORT}:6379'
         volumes:
             - '${REDIS_CONFIG}:/data'
+            
+    nginx-proxy-manager:
+        image: jlesage/nginx-proxy-manager
+        container_name: ${CONTAINER_NAME_NPM}
+        restart: unless-stopped
+        ports:
+            - "${NPM_DASH_PORT}:8181"
+            - "80:8080"
+            - "443:4443"
+        volumes:
+            - ${NPM_CONFIG}:/config:rw   
