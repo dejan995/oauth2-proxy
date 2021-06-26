@@ -46,12 +46,11 @@ cookie_httponly = true
 ```shell
 sudo docker-compose up -d
 ```
-6. After everything is up and running, you will go to the Nginx Proxy Manager Dashboard. If this is your first time using NPM, the default login credentials are:
+6. After everything is up and running, you will go to the Nginx Proxy Manager Dashboard. If this is your first time using NPM, the default login credentials are as bellow. After you login you will be asked to change these.
 ```code
 email: admin@example.com
 password: changeme
 ```
-After you login you will be asked to change these.
 7. Go ahead and create the proxy hosts for your services and applications. If you are having trouble just use Google. The Nginx Proxy Manager is a well documented project and you will find over a dozen tutorials. The use and setup of NPM is out of the scope of this project.
 8. After you have everything setup the way you want it, it is time to add the connection to OAuth2-Proxy.
 You will have to edit your proxy hosts one by one and in the "Advanced" tab add this snippet.
