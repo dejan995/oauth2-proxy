@@ -9,7 +9,25 @@ trigger:
 pool:
   vmImage: windows-latest
 
-steps:
-- task: gitsync@1
-  inputs:
-    GitRepoUrl: 'https://$(MYPAT)@github.com/dejan995/oauth2-proxy.git'
+jobs:
+  - job: Git_Credentials
+    steps:
+    - task: CmdLine@2
+      inputs:
+       script: |
+        git config --global user.name "$(NAME)"
+        git config --global user.email "$(EMAIL)"
+
+  - job: Sync_GitLab
+    steps:
+    - task: gitsync@1
+      inputs:
+       GitRepoUrl: 'https://$(GITLAB_USER):$(MYPATGITLAB)@$(GITLAB_HOST)/$(GITLAB_USER)/oauth2-proxy.git'
+    dependsOn: Git_Credentials
+
+  - job: Sync_GitHub
+    steps:
+    - task: gitsync@1
+      inputs:
+       GitRepoUrl: 'https://$(MYPATGITHUB)@github.com/dejan995/oauth2-proxy.git'
+    dependsOn: Sync_GitLab
